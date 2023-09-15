@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="/home/diegomgt/Documentos/Programacion/DIEGO/SELENIUM_CUCUMBER/seleniumUdemyTata">
+
+        <classes>
+            <class name="org.example.test36_testng1">
+                <methods>
+                    <include name="test"/>
+                    <exclude name="test2"/>
+                    <exclude name="prueba.*"/>
+                    <include name="diego.*"/>
+                </methods>
+            </class>
+        </classes>
+
+        <packages>
+            <package name="org.example.testngxml"/>
+        </packages>
+
+    </test>
+</suite>
