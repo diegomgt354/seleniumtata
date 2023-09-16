@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test in testng two">
+<!--    parametros universales-->
+    <parameter name="nombre" value="Diego"/>
+    <parameter name="apellido" value="Gutierrez Tafur"/>
+
+    <test name="Nuevo test">
+        <classes>
+            <class name="org.example.testngxml.parametros" />
+        </classes>
+    </test>
+    <test name="Otro test">
+        <classes>
+<!--            parametro local-->
+            <parameter name="apodo" value="DiegoMonti"/>
+            <class name="org.example.testngxml.parametros2"/>
+        </classes>
+    </test>
+</suite>

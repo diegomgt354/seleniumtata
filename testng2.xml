@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Test in testng two">
+    
+    <test name="Nuevo test">
+<!--        solo ejecuta los que tienen la opcion groups de nombre Smoke-->
+        <groups>
+            <run>
+<!--                si no quiero que ejecute los groups solo le pongo exclude-->
+                <include name="Smoke"/>
+            </run>
+        </groups>
+<!--        paquetes o clases de donde busca los groups-->
+        <packages>
+            <package name="org.example.testngxml"/>
+        </packages>
+
+        <classes>
+            <class name="org.example.test36_testng1">
+                <methods>
+                    <include name="test"/>
+                    <exclude name="test2"/>
+                    <exclude name="prueba.*"/>
+                    <include name="diego.*"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

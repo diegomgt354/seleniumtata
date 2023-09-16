@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
+<suite name="Test in testng one">
     <test verbose="2" preserve-order="true" name="/home/diegomgt/Documentos/Programacion/DIEGO/SELENIUM_CUCUMBER/seleniumUdemyTata">
 
         <classes>
+
+<!--            <class name="org.example.testngxml.Alessio"/>-->
+
             <class name="org.example.test36_testng1">
                 <methods>
+<!--                    ejecuta este test-->
                     <include name="test"/>
+<!--                    no ejecuta este test-->
                     <exclude name="test2"/>
+<!--                    no ejecuta los test que inician con prueba-->
                     <exclude name="prueba.*"/>
+<!--                    si ejecuta los test que inician con diego-->
                     <include name="diego.*"/>
                 </methods>
             </class>
@@ -18,5 +25,12 @@
             <package name="org.example.testngxml"/>
         </packages>
 
+    </test>
+    
+    <test name="Nuevo test">
+        <classes>
+<!--            si no se pone las clases, pues ejecuta todos-->
+            <class name="org.example.testngxml.Anthonella"></class>
+        </classes>
     </test>
 </suite>
