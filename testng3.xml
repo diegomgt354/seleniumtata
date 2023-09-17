@@ -4,6 +4,7 @@
 <!--    parametros universales-->
     <parameter name="nombre" value="Diego"/>
     <parameter name="apellido" value="Gutierrez Tafur"/>
+    <parameter name="APIKey/password" value="12345678"/>
 
     <test name="Nuevo test">
         <classes>

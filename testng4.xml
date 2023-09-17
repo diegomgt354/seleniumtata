@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!--parallel signinifa que los test iran de paralelo-->
+<!--thread-count indica cuantas iran de paralelo-->
+<suite name="Test in testng two" parallel="tests" thread-count="3">
+    <listeners>
+        <listener class-name="org.example.testngxml.Listeners"/>
+    </listeners>
+
+    <test name="prueba de listeners" parallel="classes" thread-count="1">
+        <classes>
+            <class name="org.example.testngxml.data"/>
+            <class name="org.example.testngxml.saleError"/>
+        </classes>
+    </test>
+</suite>
