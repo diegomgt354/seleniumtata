@@ -7,7 +7,7 @@
 
 <!--            <class name="org.example.testngxml.Alessio"/>-->
 
-            <class name="org.example.test36_testng1">
+            <class name="org.example.test.test36_testng1">
                 <methods>
 <!--                    ejecuta este test-->
                     <include name="test"/>

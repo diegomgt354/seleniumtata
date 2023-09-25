@@ -16,7 +16,7 @@
         </packages>
 
         <classes>
-            <class name="org.example.test36_testng1">
+            <class name="org.example.test.test36_testng1">
                 <methods>
                     <include name="test"/>
                     <exclude name="test2"/>
