@@ -7,11 +7,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class RegisterPage extends FunctionsAbstracts {
-    WebDriver driver;
+//    WebDriver driver;
 
     public RegisterPage(WebDriver driver){
         super(driver);
-        this.driver = driver;
+//        this.driver = driver;
         PageFactory.initElements(driver,this);
     }
 

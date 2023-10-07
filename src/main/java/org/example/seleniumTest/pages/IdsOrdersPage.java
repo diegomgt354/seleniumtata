@@ -13,11 +13,11 @@ import java.time.Duration;
 import java.util.List;
 
 public class IdsOrdersPage extends FunctionsAbstracts {
-    WebDriver driver;
+//    WebDriver driver;
 
     public IdsOrdersPage(WebDriver driver){
         super(driver);
-        this.driver = driver;
+//        this.driver = driver;
         PageFactory.initElements(driver,this);
     }
 

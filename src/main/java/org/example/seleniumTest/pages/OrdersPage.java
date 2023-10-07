@@ -13,28 +13,43 @@ import java.time.Duration;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class OrdersPage extends FunctionsAbstracts {
 
-    WebDriver driver;
+//    WebDriver driver;
 
     public OrdersPage(WebDriver driver){
         super(driver);
-        this.driver = driver;
+//        this.driver = driver;
         PageFactory.initElements(driver,this);
     }
 
     @FindBy(css = "table tbody")
     WebElement idTable;
 
+    @FindBy(css = "tr td:nth-child(3)")
+    List<WebElement> nameProducts;
+
+    @FindBy(css = "tr th[scope='row']")
+    List<WebElement> idProducts;
+
+
+
+
     By tr = By.cssSelector("tr");
     By th = By.cssSelector("th");
 
-    public boolean validateProducts(List<String> txtIds){
-        List<String> txtIdsTable = visibilityElement(idTable).findElements(tr).stream().map(element -> element.findElement(th).getText()).toList();
-        Set<String> setTxtIds = new HashSet<>(txtIds);
-        Set<String> setTxtIdsTable = new HashSet<>(txtIdsTable);
-        return setTxtIdsTable.containsAll(setTxtIds);
+
+    public boolean validateProductsById(List<String> txtIds){
+        List<String> txtIdsTable = visibilityElements(idProducts).stream().map(WebElement::getText).toList();
+        return new HashSet<>(txtIdsTable).containsAll(txtIds);
+    }
+
+    public boolean validateProductsByName(List<String> txtNames){
+        List<String> txtNamesTable = visibilityElements(nameProducts).stream().map(name->name.getText().toUpperCase()).toList();
+        return new HashSet<>(txtNamesTable).containsAll(txtNames);
+//        return nameProducts.stream().anyMatch(pro->pro.getText().equalsIgnoreCase("niidea"));
     }
 
 }

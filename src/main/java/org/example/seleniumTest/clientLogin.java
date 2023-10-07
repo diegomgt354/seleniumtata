@@ -62,7 +62,7 @@ public class clientLogin {
     }
 
     @Test
-    public void test() {
+    public void testCompleto() {
 
         String txtUserEmail = "diegogutierrez7@testing.com";
         String txtUserPassword = "Diego123!";

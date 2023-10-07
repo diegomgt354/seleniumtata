@@ -6,20 +6,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
-import java.time.Duration;
 import java.util.List;
-import java.util.Random;
 
-public class DashboardPage extends FunctionsAbstracts {
-    WebDriver driver;
+public class HomePage extends FunctionsAbstracts {
+//    WebDriver driver;
 
-    public DashboardPage(WebDriver driver){
+    public HomePage(WebDriver driver){
         super(driver);
-        this.driver = driver;
+//        this.driver = driver;
         PageFactory.initElements(driver,this);
     }
 

@@ -11,8 +11,8 @@ import java.util.List;
 
 public class FunctionsAbstracts {
 
-    WebDriver driver;
-    WebDriverWait wait;
+    public WebDriver driver;
+    public WebDriverWait wait;
     public FunctionsAbstracts(WebDriver driver){
         this.driver = driver;
         wait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
@@ -49,7 +49,6 @@ public class FunctionsAbstracts {
 
     public void toGo(String url){
         driver.get(url);
-        driver.manage().window().maximize();
     }
 
 }

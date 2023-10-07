@@ -5,16 +5,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class LoginPage extends FunctionsAbstracts {
-    WebDriver driver;
+//    WebDriver driver;
 
     public LoginPage(WebDriver driver){
         super(driver);
-        this.driver = driver;
+//        this.driver = driver;
         PageFactory.initElements(driver,this);
     }
 
@@ -30,6 +27,9 @@ public class LoginPage extends FunctionsAbstracts {
     @FindBy(linkText = "Register here")
     WebElement btnRegister;
 
+    @FindBy(css = ".toast-error")
+    WebElement msgError;
+
     public void toGo(){
         toGo("https://rahulshettyacademy.com/client/");
     }
@@ -39,11 +39,15 @@ public class LoginPage extends FunctionsAbstracts {
         return new RegisterPage(driver);
     }
 
-    public DashboardPage login(String txtUserEmail, String txtUserPassword){
+    public HomePage login(String txtUserEmail, String txtUserPassword){
         sendKey(userEmail,txtUserEmail);
         sendKey(userPassword,txtUserPassword);
         clickElement(bthLogin);
-        return new DashboardPage(driver);
+        return new HomePage(driver);
+    }
+
+    public boolean validateMsgError(String txtError){
+        return visibilityElement(msgError).getText().equals(txtError);
     }
 
 }

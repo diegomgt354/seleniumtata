@@ -11,18 +11,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.time.Duration;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class MyCartPage extends FunctionsAbstracts {
-    WebDriver driver;
+//    WebDriver driver;
 
     public MyCartPage(WebDriver driver){
         super(driver);
-        this.driver = driver;
+//        this.driver = driver;
         PageFactory.initElements(driver,this);
     }
 
@@ -43,17 +40,20 @@ public class MyCartPage extends FunctionsAbstracts {
         return setProducts.equals(setProductsInCart);
     }
 
-    public void deleteProductRandom(List<String> products){
+    public List<String> deleteProductRandom(List<String> products){
         Random random = new Random();
-        int indiceAleatorio = random.nextInt(products.size());
+        int indexAleatory = random.nextInt(products.size());
+        String txtProductDelete = products.get(indexAleatory);
         visibilityElements(cartProducts).stream()
                 .filter(element->element.findElement(titleProduct).getText()
-                .equals(products.get(indiceAleatorio))).findFirst().ifPresent(pro->{
+                .equals(txtProductDelete)).findFirst().ifPresent(pro->{
                     pro.findElement(btnDeleteProducto).click();
                     invisibilityElement(pro);
-                    System.out.println("Producto eliminado: "+products.get(indiceAleatorio));
+                    System.out.println("Producto eliminado: "+txtProductDelete);
                 });
-
+        List<String> productsOrder = new ArrayList<>();
+        products.stream().filter(txt->!txt.equals(txtProductDelete)).forEach(productsOrder::add);
+        return productsOrder;
     }
 
     public PaymentPage goToCheckout(){
