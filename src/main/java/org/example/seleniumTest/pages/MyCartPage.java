@@ -34,7 +34,7 @@ public class MyCartPage extends FunctionsAbstracts {
 
     public boolean validateProducts(List<String> products){
         List<String> productsInCart = visibilityElements(cartProducts).stream()
-                .map(element->element.findElement(titleProduct).getText()).toList();
+                .map(element->element.findElement(titleProduct).getText()).collect(Collectors.toList());
         Set<String> setProducts = new HashSet<>(products);
         Set<String> setProductsInCart = new HashSet<>(productsInCart);
         return setProducts.equals(setProductsInCart);

@@ -151,7 +151,7 @@ public class clientLogin {
 //        validate id products
         visibilityElement(idProduct);
         List<WebElement> idElements = driver.findElements(idProduct);
-        List<String> txtIds = idElements.stream().map(id->id.getText().replace("|","").trim()).toList();
+        List<String> txtIds = idElements.stream().map(id->id.getText().replace("|","").trim()).collect(Collectors.toList());
 
         //      products orders
         clickElement(btnOrders);

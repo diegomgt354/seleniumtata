@@ -6,13 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
-import java.time.Duration;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 public class OrdersPage extends FunctionsAbstracts {
@@ -35,19 +31,17 @@ public class OrdersPage extends FunctionsAbstracts {
     List<WebElement> idProducts;
 
 
-
-
     By tr = By.cssSelector("tr");
     By th = By.cssSelector("th");
 
 
     public boolean validateProductsById(List<String> txtIds){
-        List<String> txtIdsTable = visibilityElements(idProducts).stream().map(WebElement::getText).toList();
+        List<String> txtIdsTable = visibilityElements(idProducts).stream().map(WebElement::getText).collect(Collectors.toList());
         return new HashSet<>(txtIdsTable).containsAll(txtIds);
     }
 
     public boolean validateProductsByName(List<String> txtNames){
-        List<String> txtNamesTable = visibilityElements(nameProducts).stream().map(name->name.getText().toUpperCase()).toList();
+        List<String> txtNamesTable = visibilityElements(nameProducts).stream().map(name->name.getText().toUpperCase()).collect(Collectors.toList());
         return new HashSet<>(txtNamesTable).containsAll(txtNames);
 //        return nameProducts.stream().anyMatch(pro->pro.getText().equalsIgnoreCase("niidea"));
     }

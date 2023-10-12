@@ -11,6 +11,7 @@ import org.testng.Assert;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class IdsOrdersPage extends FunctionsAbstracts {
 //    WebDriver driver;
@@ -29,7 +30,7 @@ public class IdsOrdersPage extends FunctionsAbstracts {
 
 
     public List<String> txtOrdersIds(){
-        return visibilityElements(idProduct).stream().map(id->id.getText().replace("|","").trim()).toList();
+        return visibilityElements(idProduct).stream().map(id->id.getText().replace("|","").trim()).collect(Collectors.toList());
     }
 
     public OrdersPage goToOrders(){
