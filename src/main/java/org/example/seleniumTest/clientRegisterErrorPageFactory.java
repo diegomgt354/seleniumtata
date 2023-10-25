@@ -10,8 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class clientRegisterErrorPageFactory extends Base {
-
-
+    
     @Test
     public void registerErrorValidation() throws IOException {
 

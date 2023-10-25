@@ -13,11 +13,11 @@ import java.util.stream.Collectors;
 
 public class OrdersPage extends FunctionsAbstracts {
 
-//    WebDriver driver;
+    WebDriver driver;
 
     public OrdersPage(WebDriver driver){
         super(driver);
-//        this.driver = driver;
+        this.driver = driver;
         PageFactory.initElements(driver,this);
     }
 

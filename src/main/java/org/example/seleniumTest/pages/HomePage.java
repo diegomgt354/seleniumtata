@@ -10,11 +10,11 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 public class HomePage extends FunctionsAbstracts {
-//    WebDriver driver;
+    WebDriver driver;
 
     public HomePage(WebDriver driver){
         super(driver);
-//        this.driver = driver;
+        this.driver = driver;
         PageFactory.initElements(driver,this);
     }
 
@@ -33,6 +33,8 @@ public class HomePage extends FunctionsAbstracts {
     @FindBy(css = ".cartWrap")
     List<WebElement> cartProduct;
 
+    @FindBy(xpath = "//div[@aria-label='Login Successfully']")
+    WebElement loginSuccessfullyMessage;
 
     public void selectProducts(List<String> products){
         for(String pro : products){
@@ -43,6 +45,20 @@ public class HomePage extends FunctionsAbstracts {
                 if(invisibilityElement(imgCarga)) System.out.println("Producto '"+pro+"' seleccionado.");
             }
         }
+    }
+
+    public void selectOneProduct(String product){
+        WebElement productElement = visibilityElements(cardProduct).stream().filter(element->element.findElement(By.cssSelector("b")).getText().equals(product)).findFirst().orElse(null);
+        if(productElement!=null){
+            productElement.findElement(By.cssSelector(".card-body button:last-of-type")).click(); // button:last-of-type selecciona el ultimo boton
+            visibilityElement(toastContainer);
+            if(invisibilityElement(imgCarga)) System.out.println("Producto '"+productElement+"' seleccionado.");
+        }
+
+    }
+
+    public void validateLoginSuccessfully(){
+        visibilityElement(loginSuccessfullyMessage);
     }
 
     public MyCartPage goToCartPage(){

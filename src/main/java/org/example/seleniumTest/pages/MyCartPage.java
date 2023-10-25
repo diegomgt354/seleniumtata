@@ -15,11 +15,11 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class MyCartPage extends FunctionsAbstracts {
-//    WebDriver driver;
+    WebDriver driver;
 
     public MyCartPage(WebDriver driver){
         super(driver);
-//        this.driver = driver;
+        this.driver = driver;
         PageFactory.initElements(driver,this);
     }
 
@@ -38,6 +38,12 @@ public class MyCartPage extends FunctionsAbstracts {
         Set<String> setProducts = new HashSet<>(products);
         Set<String> setProductsInCart = new HashSet<>(productsInCart);
         return setProducts.equals(setProductsInCart);
+    }
+
+    public boolean validateOneProduct(String product){
+        List<String> productsInCart = visibilityElements(cartProducts).stream()
+                .map(element->element.findElement(titleProduct).getText()).collect(Collectors.toList());
+        return productsInCart.contains(product);
     }
 
     public List<String> deleteProductRandom(List<String> products){

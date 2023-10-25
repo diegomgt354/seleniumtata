@@ -7,11 +7,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class Navbar extends FunctionsAbstracts {
-//    WebDriver driver;
+    WebDriver driver;
 
     public Navbar(WebDriver driver){
         super(driver);
-//        this.driver = driver;
+        this.driver = driver;
         PageFactory.initElements(driver,this);
     }
 

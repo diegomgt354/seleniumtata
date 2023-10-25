@@ -56,13 +56,4 @@ public class FunctionsAbstracts {
         driver.get(url);
     }
 
-//    screenshot
-    public void getScreenshot(String testClassName) throws IOException {
-        TakesScreenshot ts =  (TakesScreenshot) driver;
-        File source = ts.getScreenshotAs(OutputType.FILE);
-        File file = new File(System.getProperty("user.dir")+"//reports//"+testClassName+".pgn");
-        FileUtils.copyFile(source,file);
-
-    }
-
 }

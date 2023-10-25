@@ -16,11 +16,11 @@ import java.util.Random;
 import java.util.stream.Stream;
 
 public class PaymentPage extends FunctionsAbstracts {
-//    WebDriver driver;
+    WebDriver driver;
 
     public PaymentPage(WebDriver driver){
         super(driver);
-//        this.driver = driver;
+        this.driver = driver;
         PageFactory.initElements(driver,this);
     }
 

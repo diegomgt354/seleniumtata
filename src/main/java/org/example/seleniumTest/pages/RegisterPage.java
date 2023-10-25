@@ -7,11 +7,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class RegisterPage extends FunctionsAbstracts {
-//    WebDriver driver;
+    WebDriver driver;
 
     public RegisterPage(WebDriver driver){
         super(driver);
-//        this.driver = driver;
+        this.driver = driver;
         PageFactory.initElements(driver,this);
     }
 
@@ -48,6 +48,9 @@ public class RegisterPage extends FunctionsAbstracts {
     @FindBy(xpath = "//section[2]/div/div[2]/button")
     WebElement returnLogin;
 
+    @FindBy(css = "h1.headcolor")
+    WebElement msgConfirmationRegister;
+
     public void register(String txtUserEmail, String txtUserPassword){
         sendKey(firstName,"diego");
         sendKey(lastName,"gutierrez");
@@ -61,6 +64,10 @@ public class RegisterPage extends FunctionsAbstracts {
         clickElement(bthLogin);
     }
 
+    public boolean validateRegister(String msgConfirmation){
+        visibilityElement(msgConfirmationRegister);
+        return msgConfirmationRegister.getText().trim().equals(msgConfirmation);
+    }
 
     public void goToLogin(){
 //        return login
